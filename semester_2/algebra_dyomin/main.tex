@@ -1,0 +1,57 @@
+\documentclass[a4paper]{article}
+
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=3cm]{geometry}
+\usepackage[12pt]{extsizes}
+
+\usepackage{hyperref}
+\usepackage{xcolor}
+\definecolor{linkcolor}{HTML}{799B03} % цвет ссылок
+\definecolor{urlcolor}{HTML}{799B03} % цвет гиперссылок
+\hypersetup{pdfstartview=FitH,linkcolor=linkcolor,urlcolor=urlcolor,colorlinks=true}
+
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+\title{Лекции по алгебре}
+\date{Семестр 2}
+\author{Демин Д.Б.}
+
+\newtheorem{defin}{Определение}
+\newtheorem{example}{Пример}
+\newtheorem{zam}{Замечание}
+\newtheorem{theor}{Теорема}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+\input{algebra_lec1}
+\input{algebra_lec2}
+
+\newpage
+\section{Использованные обозначения}
+$\square$ - окончание доказательства. \\
+$\mathbb N,\,\mathbb Q,\,\mathbb R,\,\mathbb C$ - натуральные, рациональные,
+действительные, комплексные числа.\\
+$sgn$ - знак числа (+ или -)\\
+$dim$ - размерность пространства (его ранг)\\
+$im$ - образ отображения\\
+$ker$ - ядро отображения\\
+$rk$ - ранг оператора\\
+$def$ - дефект оператора\\
+$tr$ - след матрицы\\
+$L(V,W)$ - множество линейный отображений из пространства $V$ в 
+пространство $W$\\
+$(x,y)$ - скалярное произведение $x$ и $y$\\
+$diag(a_1,a_2,...,a_n)$ - диагональная матрица $n\times n$ из элементов
+$a_1,a_2,...,a_n$\\
+$L(M)$ - линейная оболочка множества векторов $M$\\
+$\{e\}$, $\{e_n\}$ - базис или система векторов (базис размерности $n$)\\
+
+\begin{thebibliography}{}
+\bibitem{conspect1}
+Конспект по алгебре за первый семестр
+\end{thebibliography}
+\end{document}

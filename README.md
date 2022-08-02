@@ -9,7 +9,7 @@
 ### 2 семестр:
 Демин Д.Б. Алгебра и аналитическая геометрия
 
-
+Лекции по анализу - в виде черновиков.
 
 ## Рекомендуемые настройки: 
 ```
@@ -24,7 +24,7 @@
 \usepackage{xcolor}
 \definecolor{linkcolor}{HTML}{799B03} % цвет ссылок
 \definecolor{urlcolor}{HTML}{799B03}  % цвет гиперссылок
-\hypersetup{pdfstartview=FitH,  linkcolor=linkcolor,urlcolor=urlcolor, colorlinks=true}
+\hypersetup{pdfstartview=FitH,linkcolor=linkcolor,urlcolor=urlcolor,colorlinks=true}
 
 %Пакеты символов
 \usepackage[russian]{babel}           
