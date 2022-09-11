@@ -6,7 +6,6 @@ on:
     - 'semester_1/**'
   pull_request:
     branches: [ master ]
-+1
 jobs:
   build:
     # Базовая ОС, на которой будут исполняться команды. Оставим ubuntu
