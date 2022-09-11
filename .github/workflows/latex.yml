@@ -58,7 +58,7 @@ jobs:
 
         path: semester_2/algebra_dyomin/Dyomin_Algebra.pdf
 
-deploy:
+# deploy:
 
     runs-on: ubuntu-latest
 
