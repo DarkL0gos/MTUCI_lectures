@@ -8,6 +8,7 @@
 
 ### 2 семестр:
 Демин Д.Б. Алгебра и аналитическая геометрия
+[Последний релиз](https://github.com/DarkL0gos/MTUCI_lectures/releases/latest/download/Dyomin_Algebra.pdf)
 
 Лекции по анализу - в виде черновиков.
 
