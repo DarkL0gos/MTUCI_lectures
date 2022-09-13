@@ -37,12 +37,20 @@ jobs:
                                   args: -output-dir=../../../../raw_build -jobname=${{ env.CONSPECT_NAME }}
                                   compiler: pdflatex
                                   post_compile: "pdflatex -output-dir=$GITHUB_WORKSPACE/raw_build -jobname=$CONSPECT_NAME main.tex"
+                         - name: 
+                           uses: actions/upload-artifact@v2
 
-                        - name: Prepare
-                          run: |
-                                  mkdir -p "build/${{ env.SEMESTER }}/${{ env.CONSPECT_NAME }}"
-                                  mv "raw_build/${{ env.CONSPECT_NAME}}.pdf" "build/${{ env.TYPE }}/${{ env.SEMESTER }}/${{ env.SUBJECT_NAME }}"
-                      #Осталось загрузить на релизис
+                          with:
+
+        # Это значение используется как ключ в хранилище
+
+        name: my_doc
+
+        # Путь до собранного pdf. Может содержать «*», «**»
+
+        # Здесь это <working_directory>/<jobname>.pdf
+
+        path: ${{ env.BRANCH_NAME}}/${{ env.CONSPECT_NAME}}.pdf
                       
                       
                       
