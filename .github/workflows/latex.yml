@@ -40,7 +40,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with: 
           name: ${{ env.LECTURE_NAME}}
-          path: ${{ env.FULL_PATH}}/{{ env.LECTURE_NAME}}.pdf
+          path: ${{ env.FULL_PATH}}/${{ env.LECTURE_NAME}}.pdf
         
         
         
