@@ -23,11 +23,11 @@ jobs:
                           uses: xu-cheng/latex-action@v2
                           with:
                                   root_file: main.tex
-                                  working_directory: $TARGET
-                                  args: -jobname=$CONSPECT_NAME -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+                                  working_directory: ${{TARGET}}
+                                  args: -jobname=${{CONSPECT_NAME}} -pdf -file-line-error -halt-on-error -interaction=nonstopmode
                                   compiler: pdflatex  
                  - name: upload file
                            uses: actions/upload-artifact@v2
                            with:
-                                name: $CONSPECT_NAME
-                                path: $TARGET/$CONSPECT_NAME.pdf
+                                name: ${{CONSPECT_NAME}}
+                                path: ${{TARGET}}/${{CONSPECT_NAME}}.pdf
