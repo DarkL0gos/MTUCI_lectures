@@ -38,6 +38,6 @@ jobs:
       - name: Download pdf document
         uses: actions/download-artifact@v3
         with:
-           name: ${{ env.LECTURE_NAME}}
+           name: ${{ env.LECTURE_NAME}}.pdf
            path: ${{ env.FULL_PATH}}
   
