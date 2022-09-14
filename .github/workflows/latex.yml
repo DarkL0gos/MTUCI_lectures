@@ -7,9 +7,12 @@
 
 name: Build and upload LaTeX
 on:
-    push:
-        branches:
-            - '!master'
+  push:
+    branches:
+      - main
+  pull-request:
+    branches:
+      - main
 
 jobs:
  #   TARGET = "semester_2/algebra_dyomin"
