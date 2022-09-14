@@ -5,32 +5,33 @@
 
 # "ИмяЛектора_Предмет_Семестр" !!!!!
 
-name: Build and upload LaTeX
+name: build and upload latex
+
 on:
   push:
     branches:
       - main
-  pull-request:
-    branches:
-      - main
 
 jobs:
- #   TARGET = "semester_2/algebra_dyomin"
- #   CONSPECT_NAME="Dyomin_Algebra_2"
-    
-    build:
-           runs-on: ubuntu-latest
-            steps:    
-                - uses: actions/checkout@v2
-                - name: Build
-                          uses: xu-cheng/latex-action@v2
-                          with:
-                                  root_file: main.tex
-                                  working_directory: semester_2/algebra_dyomin
-                                  args: -jobname=Dyomin_Algebra_2 -pdf -file-line-error -halt-on-error -interaction=nonstopmode
-                                  compiler: pdflatex  
-                 - name: upload pdf document
-                           uses: actions/upload-artifact@v2
-                           with:
-                                name: Dyomin_Algebra_2
-                                path: semester_2/algebra_dyomin/Dyomin_Algebra_2.pdf
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: get target
+        id: get-target
+        run: |
+          FULL_PATH=Semester_2/algebra_dyomin
+          echo "FULL_PATH=$(echo ${FULL_PATH})" >> $GITHUB_ENV
+          LECTURE_NAME=Dyomin_Algebra_2
+          echo "LECTURE_NAME=$(echo ${LECTURE_NAME})" >> $GITHUB_ENV
+         
+      - name: Build
+        id: build
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: main.tex
+          working_directory: ${{ env.FULL_PATH }}
+          args: -output-dir=../..
+          compiler: latexmk
+        
