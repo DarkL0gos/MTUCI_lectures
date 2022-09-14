@@ -12,8 +12,8 @@ on:
             - '!master'
 
 jobs:
-    TARGET = "semester_2/algebra_dyomin"
-    CONSPECT_NAME="Dyomin_Algebra_2"
+ #   TARGET = "semester_2/algebra_dyomin"
+ #   CONSPECT_NAME="Dyomin_Algebra_2"
     
     build:
            runs-on: ubuntu-latest
@@ -23,11 +23,11 @@ jobs:
                           uses: xu-cheng/latex-action@v2
                           with:
                                   root_file: main.tex
-                                  working_directory: ${{TARGET}}/
-                                  args: -jobname=${{CONSPECT_NAME}} -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+                                  working_directory: semester_2/algebra_dyomin
+                                  args: -jobname=Dyomin_Algebra_2 -pdf -file-line-error -halt-on-error -interaction=nonstopmode
                                   compiler: pdflatex  
                  - name: upload pdf document
                            uses: actions/upload-artifact@v2
                            with:
-                                name: ${{CONSPECT_NAME}}
-                                path: ${{TARGET}}/${{CONSPECT_NAME}}.pdf
+                                name: Dyomin_Algebra_2
+                                path: semester_2/algebra_dyomin/Dyomin_Algebra_2.pdf
