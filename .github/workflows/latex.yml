@@ -23,10 +23,10 @@ jobs:
                           uses: xu-cheng/latex-action@v2
                           with:
                                   root_file: main.tex
-                                  working_directory: ${{TARGET}}
+                                  working_directory: ${{TARGET}}/
                                   args: -jobname=${{CONSPECT_NAME}} -pdf -file-line-error -halt-on-error -interaction=nonstopmode
                                   compiler: pdflatex  
-                 - name: upload file
+                 - name: upload pdf document
                            uses: actions/upload-artifact@v2
                            with:
                                 name: ${{CONSPECT_NAME}}
