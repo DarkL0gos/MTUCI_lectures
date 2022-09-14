@@ -21,7 +21,7 @@ jobs:
       - name: get target
         id: get-target
         run: |
-          FULL_PATH=Semester_2/algebra_dyomin
+          FULL_PATH=semester_2/algebra_dyomin
           echo "FULL_PATH=$(echo ${FULL_PATH})" >> $GITHUB_ENV
           LECTURE_NAME=Dyomin_Algebra_2
           echo "LECTURE_NAME=$(echo ${LECTURE_NAME})" >> $GITHUB_ENV
