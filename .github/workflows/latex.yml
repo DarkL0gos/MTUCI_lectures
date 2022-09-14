@@ -79,7 +79,7 @@ jobs:
           # Из предыдущего step с id=create_release генерится upload_url - по нему и надо заливать
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           # Не переходим в папку latex_sources, поскольку download-artifacts грузит в текущую директорию
-          asset_path: semester_2/algebra_dyomin/Dyomin_Algebra_2.pdf
+          asset_path: ./Dyomin_Algebra_2.pdf
           asset_name: Dyomin_Algebra_2.pdf
           asset_content_type: application/pdf      
         
