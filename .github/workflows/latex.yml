@@ -34,12 +34,24 @@ jobs:
           working_directory: ${{ env.FULL_PATH }}
           args: -jobname=${{ env.LECTURE_NAME}} -pdf -file-line-error -halt-on-error -interaction=nonstopmode
           compiler: latexmk
-          
+      - name: copy file to repo
+        uses: dmnemec/copy_file_to_another_repo_action@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source_file: '${{ env.LECTURE_NAME}}'
+          destination_repo: 'DarkL0gos/MTUCI_lectures'
+          destination_folder: '${{ env.FULL_PATH}}'
+          user_email: 'rumbum15bum@yandex.ru'
+          user_name: 'DarkL0gos'
+          commit_message: 'Upload PDF, I guess'
       - name: upload pdf document
         uses: actions/upload-artifact@v2
         with:
            name: ${{ env.LECTURE_NAME}}.pdf
            path: ${{ env.FULL_PATH}}/${{ env.LECTURE_NAME}}.pdf
+           
+           
   deploy:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
