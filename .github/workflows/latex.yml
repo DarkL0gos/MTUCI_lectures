@@ -34,17 +34,17 @@ jobs:
           working_directory: ${{ env.FULL_PATH }}
           args: -jobname=${{ env.LECTURE_NAME}} -pdf -file-line-error -halt-on-error -interaction=nonstopmode
           compiler: latexmk
-      - name: copy file to repo
-        uses: dmnemec/copy_file_to_another_repo_action@main
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-        with:
-          source_file: '${{ env.LECTURE_NAME}}'
-          destination_repo: 'DarkL0gos/MTUCI_lectures'
-          destination_folder: '${{ env.FULL_PATH}}'
-          user_email: 'rumbum15bum@yandex.ru'
-          user_name: 'DarkL0gos'
-          commit_message: 'Upload PDF, I guess'
+      #- name: copy file to repo
+      #  uses: dmnemec/copy_file_to_another_repo_action@main
+      #  env:
+      #    API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      #  with:
+      #    source_file: '${{ env.LECTURE_NAME}}'
+      #    destination_repo: 'DarkL0gos/MTUCI_lectures'
+      #    destination_folder: '${{ env.FULL_PATH}}'
+      #    user_email: 'rumbum15bum@yandex.ru'
+      #    user_name: 'DarkL0gos'
+      #    commit_message: 'Upload PDF, I guess'
       - name: upload pdf document
         uses: actions/upload-artifact@v2
         with:
@@ -70,18 +70,18 @@ jobs:
         with:
             # Тот самый ключ, который мы указывали в upload-artifact
           name: ${{ env.LECTURE_NAME}}
-      - name: Create Release
-        uses: actions/create-release@v1
-        id: create_release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
-        with:
+      #- name: Create Release
+      #  uses: actions/create-release@v1
+      #  id: create_release
+      #  env:
+      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+      #  with:
             # Берем результат из step с id=vars (см. выше). 
             # Получим теги вида “my_doc-<дата билда>-<первые 8 символов из sha коммита>
-          tag_name: my_doc-${{ steps.vars.outputs.date }}-${{ steps.vars.outputs.sha8 }}
-          release_name: My Actions document (version ${{ steps.vars.outputs.date }})
-          draft: false
-          prerelease: false
+      #    tag_name: my_doc-${{ steps.vars.outputs.date }}-${{ steps.vars.outputs.sha8 }}
+      #    release_name: My Actions document (version ${{ steps.vars.outputs.date }})
+      #    draft: false
+      #    prerelease: false
       # Прикладываемые файлы надо заливать отдельным step
       - name: Upload pdf asset
         uses: actions/upload-release-asset@v1
@@ -89,7 +89,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           # Из предыдущего step с id=create_release генерится upload_url - по нему и надо заливать
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          upload_url: https://github.com/DarkL0gos/MTUCI_lectures/releases/my_docs
           # Не переходим в папку latex_sources, поскольку download-artifacts грузит в текущую директорию
           asset_path: ./Dyomin_Algebra_2.pdf
           asset_name: Dyomin_Algebra_2.pdf
